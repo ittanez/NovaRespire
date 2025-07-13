@@ -214,7 +214,7 @@ private fun AuthorCardSimplified(onLearnMore: () -> Unit) {
             .fillMaxWidth()
             .padding(horizontal = 8.dp, vertical = 12.dp),
         colors = CardDefaults.cardColors(
-            containerColor = NovaColors.Surface15 // ✅ CENTRALISÉ
+            containerColor = Color.White.copy(alpha = 0.95f) // FOND BLANC POUR LISIBILITÉ
         ),
         shape = RoundedCornerShape(16.dp)
     ) {
@@ -225,14 +225,14 @@ private fun AuthorCardSimplified(onLearnMore: () -> Unit) {
             Text(
                 text = Strings.created_by,
                 fontSize = 14.sp,
-                color = NovaColors.White.copy(alpha = 0.9f), // ✅ CENTRALISÉ
+                color = Color.Black.copy(alpha = 0.8f), // TEXTE NOIR LISIBLE
                 textAlign = TextAlign.Center,
                 fontWeight = FontWeight.Medium
             )
             Text(
                 text = Strings.hypnotherapist,
                 fontSize = 14.sp,
-                color = NovaColors.White.copy(alpha = 0.9f), // ✅ CENTRALISÉ
+                color = Color.Black.copy(alpha = 0.8f), // TEXTE NOIR LISIBLE
                 textAlign = TextAlign.Center,
                 modifier = Modifier.padding(top = 2.dp)
             )
@@ -343,8 +343,10 @@ private fun ExerciseCardCorrected(
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
-                        text = "ℹ️",
-                        fontSize = 16.sp
+                        text = "i",
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFFeab543) // ORANGE ASSORTI
                     )
                 }
             }

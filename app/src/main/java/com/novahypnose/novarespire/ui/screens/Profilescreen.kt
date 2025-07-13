@@ -285,7 +285,7 @@ private fun ProfileAboutCard(context: android.content.Context) {
                     },
                     modifier = Modifier.fillMaxWidth(),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = Color(0xFFeab543) // ORANGE DORÉ COMME LES AUTRES BOUTONS
+                        containerColor = Color(0xFF1B365D) // BLEU FONCÉ
                     )
                 ) {
                     Text(
