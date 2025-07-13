@@ -71,7 +71,7 @@ fun MainScreen(
         ) {
 
             // ✅ En-tête de l'application
-            AppHeaderCorrected()
+            AppHeaderCorrected(isDarkMode = isDarkMode)
 
             // ✅ Carte Alain Zenatti avec NovaColors
             AuthorCardSimplified(
@@ -188,7 +188,7 @@ private fun DarkModeToggleButton(
 }
 
 @Composable
-private fun AppHeaderCorrected() {
+private fun AppHeaderCorrected(isDarkMode: Boolean = false) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.padding(vertical = 20.dp)
@@ -197,14 +197,14 @@ private fun AppHeaderCorrected() {
             text = Strings.app_name,
             fontSize = 38.sp,
             fontWeight = FontWeight.Light,
-            color = NovaColors.White, // ✅ CENTRALISÉ
+            color = if (isDarkMode) NovaColors.White else Color.Black,
             textAlign = TextAlign.Center
         )
 
         Text(
             text = Strings.app_subtitle,
             fontSize = 20.sp,
-            color = NovaColors.White.copy(alpha = 0.9f), // ✅ CENTRALISÉ
+            color = if (isDarkMode) NovaColors.White.copy(alpha = 0.9f) else Color.Black.copy(alpha = 0.8f),
             textAlign = TextAlign.Center,
             modifier = Modifier.padding(top = 4.dp, bottom = 16.dp)
         )
