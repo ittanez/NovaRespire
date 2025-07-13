@@ -170,43 +170,36 @@ private fun ProfileContent(
 @Composable
 private fun ProfileMainPhoto() {
     Card(
-        modifier = Modifier.size(200.dp),
+        modifier = Modifier
+            .size(200.dp)
+            .background(
+                brush = Brush.radialGradient(
+                    colors = listOf(
+                        Color(0xFFeab543).copy(alpha = 0.3f),
+                        Color(0xFFeab543).copy(alpha = 0.1f)
+                    )
+                ),
+                shape = CircleShape
+            ),
         shape = CircleShape,
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer
+            containerColor = Color.Transparent
         ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 16.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 24.dp)
     ) {
         Box(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
-            // ✅ PLACEHOLDER SIMPLE - suppression du try-catch
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(NovaColors.Primary.copy(alpha = 0.3f)), // ✅ NOVA COLORS
-                contentAlignment = Alignment.Center
-            ) {
-                Text(
-                    text = "AZ",
-                    fontSize = 48.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = NovaColors.White // ✅ NOVA COLORS
-                )
-            }
-
-            // Si vous avez l'image, décommentez ces lignes :
-            /*
+            // ✅ VRAIE PHOTO D'ALAIN ACTIVÉE !
             Image(
                 painter = painterResource(id = R.drawable.photo_alain),
-                contentDescription = "Photo d'Alain Zenatti",
+                contentDescription = "Photo d'Alain Zenatti - Hypnothérapeute",
                 modifier = Modifier
                     .fillMaxSize()
                     .clip(CircleShape),
                 contentScale = ContentScale.Crop
             )
-            */
         }
     }
 }
@@ -218,17 +211,29 @@ private fun ProfileAboutCard(context: android.content.Context) {
     ) {
         // ✅ Texte biographique avec NovaColors
         Card(
-            modifier = Modifier.fillMaxWidth().padding(bottom = 32.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 32.dp)
+                .background(
+                    brush = Brush.linearGradient(
+                        colors = listOf(
+                            Color(0xFFeab543).copy(alpha = 0.2f),
+                            Color(0xFFeab543).copy(alpha = 0.1f),
+                            Color(0xFFeab543).copy(alpha = 0.2f)
+                        )
+                    ),
+                    shape = RoundedCornerShape(28.dp)
+                ),
             colors = CardDefaults.cardColors(
-                containerColor = NovaColors.Surface15 // ✅ NOVA COLORS
+                containerColor = Color.White.copy(alpha = 0.95f)
             ),
-            elevation = CardDefaults.cardElevation(defaultElevation = 12.dp),
-            shape = RoundedCornerShape(24.dp)
+            elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
+            shape = RoundedCornerShape(28.dp)
         ) {
             Text(
                 text = Strings.alain_bio,
                 fontSize = 16.sp,
-                color = NovaColors.White.copy(alpha = 0.95f), // ✅ NOVA COLORS
+                color = Color.Black.copy(alpha = 0.8f), // TEXTE NOIR LISIBLE
                 textAlign = TextAlign.Center,
                 lineHeight = 24.sp,
                 modifier = Modifier.padding(24.dp)
@@ -237,12 +242,23 @@ private fun ProfileAboutCard(context: android.content.Context) {
 
         // ✅ Texte CTA avec NovaColors
         Card(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(
+                    brush = Brush.linearGradient(
+                        colors = listOf(
+                            Color(0xFFeab543).copy(alpha = 0.3f),
+                            Color(0xFFeab543).copy(alpha = 0.15f),
+                            Color(0xFFeab543).copy(alpha = 0.3f)
+                        )
+                    ),
+                    shape = RoundedCornerShape(32.dp)
+                ),
             colors = CardDefaults.cardColors(
-                containerColor = NovaColors.Surface15 // ✅ NOVA COLORS
+                containerColor = Color.White.copy(alpha = 0.97f)
             ),
-            elevation = CardDefaults.cardElevation(defaultElevation = 12.dp),
-            shape = RoundedCornerShape(24.dp)
+            elevation = CardDefaults.cardElevation(defaultElevation = 24.dp),
+            shape = RoundedCornerShape(32.dp)
         ) {
             Column(
                 modifier = Modifier.padding(24.dp),
@@ -251,7 +267,7 @@ private fun ProfileAboutCard(context: android.content.Context) {
                 Text(
                     text = Strings.alain_cta,
                     fontSize = 14.sp,
-                    color = NovaColors.White.copy(alpha = 0.9f), // ✅ NOVA COLORS
+                    color = Color.Black.copy(alpha = 0.8f), // TEXTE NOIR LISIBLE
                     textAlign = TextAlign.Center,
                     lineHeight = 20.sp,
                     modifier = Modifier.padding(bottom = 20.dp)
@@ -269,7 +285,7 @@ private fun ProfileAboutCard(context: android.content.Context) {
                     },
                     modifier = Modifier.fillMaxWidth(),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = NovaColors.Primary // ✅ NOVA COLORS - #4d699e
+                        containerColor = Color(0xFFeab543) // ORANGE DORÉ COMME LES AUTRES BOUTONS
                     )
                 ) {
                     Text(
