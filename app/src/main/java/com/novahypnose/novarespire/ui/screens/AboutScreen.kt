@@ -266,7 +266,7 @@ private fun AlainBiographyCard() {
                 spotColor = Color(0xFFeab543).copy(alpha = 0.25f)
             ),
         colors = CardDefaults.cardColors(
-            containerColor = Color.White.copy(alpha = 0.95f)
+            containerColor = Color.Red.copy(alpha = 0.8f)  // TEST ROUGE VISIBLE
         ),
         elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
         shape = RoundedCornerShape(24.dp)
@@ -350,7 +350,7 @@ private fun AlainCTACard(context: Context) {
                 spotColor = Color(0xFFeab543).copy(alpha = 0.3f)
             ),
         colors = CardDefaults.cardColors(
-            containerColor = Color.White.copy(alpha = 0.97f)
+            containerColor = Color.Green.copy(alpha = 0.8f)  // TEST VERT VISIBLE
         ),
         elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
         shape = RoundedCornerShape(28.dp)
