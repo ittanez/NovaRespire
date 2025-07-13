@@ -16,6 +16,7 @@ import android.media.AudioAttributes
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import dagger.hilt.android.AndroidEntryPoint
 import androidx.compose.animation.core.*
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.Canvas
@@ -68,6 +69,7 @@ import kotlin.math.*
 // ACTIVITÉ PRINCIPALE
 // =============================================================================
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

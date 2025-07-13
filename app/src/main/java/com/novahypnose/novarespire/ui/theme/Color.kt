@@ -12,7 +12,7 @@ object NovaColors {
     val PrimaryLight = Color(0xFF6382b1)    // #6382b1 - Bleu clair (gradients)
     val PrimaryDark = Color(0xFF36414c)     // #36414c - Gris-bleu foncé (mode sombre)
     val Accent = Color(0xFFcec0be)          // #cec0be - Beige clair (textes)
-    val CTA = Color(0xFF874c4a)             // #874c4a - Rouge-brun (boutons CTA)
+    val CTA = Color(0xFFeab543)             // #eab543 - Orange doré (boutons CTA)
 
     // ✅ COULEURS RESPIRATION (inchangées)
     val Inhale = Color(0xFF43aa8b)          // Vert - INSPIREZ

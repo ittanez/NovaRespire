@@ -18,9 +18,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.novahypnose.novarespire.data.models.Phase
 import com.novahypnose.novarespire.data.models.PhaseType
-import com.novahypnose.novarespire.ui.theme.InhaleColor
-import com.novahypnose.novarespire.ui.theme.ExhaleColor
-import com.novahypnose.novarespire.ui.theme.HoldColor
+import com.novahypnose.novarespire.ui.theme.BreathingInhale
+import com.novahypnose.novarespire.ui.theme.BreathingExhale
+import com.novahypnose.novarespire.ui.theme.BreathingHold
 
 @Composable
 fun OptimizedBreathingGuide(
@@ -55,9 +55,9 @@ fun OptimizedBreathingGuide(
 
     // ✅ Couleurs définies dans Color.kt
     val phaseColor = when (currentPhase.type) {
-        PhaseType.INHALE -> InhaleColor   // #a9e4d7 - Vert clair pour INSPIREZ
-        PhaseType.EXHALE -> ExhaleColor   // #2c3e50 - Bleu-gris pour EXPIREZ
-        PhaseType.HOLD -> HoldColor       // #eab543 - Jaune-orange pour RETENEZ
+        PhaseType.INHALE -> BreathingInhale   // #a9e4d7 - Vert clair pour INSPIREZ
+        PhaseType.EXHALE -> BreathingExhale   // #2c3e50 - Bleu-gris pour EXPIREZ
+        PhaseType.HOLD -> BreathingHold       // #eab543 - Jaune-orange pour RETENEZ
     }
 
     Box(

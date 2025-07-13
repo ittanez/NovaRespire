@@ -10,6 +10,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -23,7 +24,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.novahypnose.novarespire.BreathingSessionViewModel
+import com.novahypnose.novarespire.model.BreathingSessionViewModel
 import com.novahypnose.novarespire.data.models.Exercise
 import com.novahypnose.novarespire.data.models.Phase
 import com.novahypnose.novarespire.data.models.SessionState
@@ -44,7 +45,7 @@ fun SessionScreen(
     onComplete: () -> Unit,
     onStop: () -> Unit
 ) {
-    val viewModel = remember { BreathingSessionViewModel() }
+    val viewModel: BreathingSessionViewModel = hiltViewModel()
     val sessionState by viewModel.sessionState.collectAsState()
 
     LaunchedEffect(exercise, duration) {

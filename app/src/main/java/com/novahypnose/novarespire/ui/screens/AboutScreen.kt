@@ -210,42 +210,46 @@ private fun AboutScreenContent(
 @Composable
 private fun AlainProfilePhoto() {
     Card(
-        modifier = Modifier.size(150.dp),
+        modifier = Modifier
+            .size(150.dp)
+            .shadow(
+                elevation = 12.dp,
+                shape = CircleShape,
+                ambientColor = Color(0xFFeab543).copy(alpha = 0.3f),
+                spotColor = Color(0xFFeab543).copy(alpha = 0.5f)
+            ),
         shape = CircleShape,
-        elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
     ) {
         Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(
-                    Brush.radialGradient(
-                        colors = listOf(
-                            Color(0xFF4A90E2),
-                            Color(0xFF667eea)
-                        )
-                    )
-                ),
+            modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Text(
-                    text = "🧠",
-                    fontSize = 48.sp
-                )
-                Text(
-                    text = "AZ",
-                    fontSize = 24.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = Color.White
-                )
-                Text(
-                    text = "Hypnothérapeute",
-                    fontSize = 10.sp,
-                    color = Color.White
-                )
-            }
+            // Photo d'Alain avec effet de bordure
+            Image(
+                painter = painterResource(id = R.drawable.photo_alain),
+                contentDescription = "Alain Zenatti - Hypnothérapeute",
+                modifier = Modifier
+                    .fillMaxSize()
+                    .clip(CircleShape),
+                contentScale = ContentScale.Crop
+            )
+            
+            // Overlay avec bordure dorée
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(
+                        brush = Brush.radialGradient(
+                            colors = listOf(
+                                Color.Transparent,
+                                Color(0xFFeab543).copy(alpha = 0.2f)
+                            ),
+                            radius = 120f
+                        ),
+                        shape = CircleShape
+                    )
+            )
         }
     }
 }
@@ -253,12 +257,19 @@ private fun AlainProfilePhoto() {
 @Composable
 private fun AlainBiographyCard() {
     Card(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .shadow(
+                elevation = 16.dp,
+                shape = RoundedCornerShape(24.dp),
+                ambientColor = Color(0xFFeab543).copy(alpha = 0.15f),
+                spotColor = Color(0xFFeab543).copy(alpha = 0.25f)
+            ),
         colors = CardDefaults.cardColors(
-            containerColor = Color.White.copy(alpha = 0.9f)
+            containerColor = Color.White.copy(alpha = 0.95f)
         ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
-        shape = RoundedCornerShape(20.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
+        shape = RoundedCornerShape(24.dp)
     ) {
         Column(
             modifier = Modifier.padding(24.dp),
@@ -270,14 +281,21 @@ private fun AlainBiographyCard() {
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                // Photo à gauche
+                // Photo à gauche avec effet premium
                 Card(
-                    modifier = Modifier.size(80.dp),
-                    shape = CircleShape
+                    modifier = Modifier
+                        .size(80.dp)
+                        .shadow(
+                            elevation = 8.dp,
+                            shape = CircleShape,
+                            ambientColor = Color(0xFFeab543).copy(alpha = 0.3f)
+                        ),
+                    shape = CircleShape,
+                    elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
                 ) {
                     Image(
                         painter = painterResource(id = R.drawable.photo_alain),
-                        contentDescription = "Alain Zenatti",
+                        contentDescription = "Alain Zenatti - Hypnothérapeute",
                         modifier = Modifier.fillMaxSize(),
                         contentScale = ContentScale.Crop
                     )
@@ -297,7 +315,7 @@ private fun AlainBiographyCard() {
                         text = "Maître Hypnologue",
                         fontSize = 16.sp,
                         fontWeight = FontWeight.Medium,
-                        color = Color(0xFF4A90E2)
+                        color = Color(0xFFeab543)
                     )
                 }
             }
@@ -323,12 +341,19 @@ private fun AlainBiographyCard() {
 @Composable
 private fun AlainCTACard(context: Context) {
     Card(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .shadow(
+                elevation = 20.dp,
+                shape = RoundedCornerShape(28.dp),
+                ambientColor = Color(0xFFeab543).copy(alpha = 0.2f),
+                spotColor = Color(0xFFeab543).copy(alpha = 0.3f)
+            ),
         colors = CardDefaults.cardColors(
-            containerColor = Color.White.copy(alpha = 0.9f)
+            containerColor = Color.White.copy(alpha = 0.97f)
         ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
-        shape = RoundedCornerShape(20.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
+        shape = RoundedCornerShape(28.dp)
     ) {
         Column(
             modifier = Modifier.padding(24.dp),
@@ -354,7 +379,7 @@ private fun AlainCTACard(context: Context) {
                     .fillMaxWidth()
                     .height(50.dp),
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFF4A90E2)
+                    containerColor = Color(0xFFeab543)
                 ),
                 shape = RoundedCornerShape(25.dp)
             ) {
@@ -377,7 +402,7 @@ private fun AlainCTACard(context: Context) {
                 Text(
                     text = Strings.website,
                     fontSize = 14.sp,
-                    color = Color(0xFF4A90E2),
+                    color = Color(0xFFeab543),
                     textAlign = TextAlign.Center,
                     fontWeight = FontWeight.Medium
                 )
@@ -396,7 +421,7 @@ private fun ContactInformation() {
     Card(
         modifier = Modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(
-            containerColor = Color(0xFF4A90E2).copy(alpha = 0.1f)
+            containerColor = Color(0xFFeab543).copy(alpha = 0.1f)
         ),
         shape = RoundedCornerShape(12.dp)
     ) {
@@ -408,7 +433,7 @@ private fun ContactInformation() {
                 text = "📍 Consultation & Accompagnement",
                 fontSize = 14.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color(0xFF4A90E2),
+                color = Color(0xFFeab543),
                 modifier = Modifier.padding(bottom = 8.dp)
             )
 
