@@ -57,7 +57,7 @@ import com.novahypnose.novarespire.utils.Strings
 import com.novahypnose.novarespire.ui.screens.MainScreen
 import com.novahypnose.novarespire.ui.screens.SessionScreen
 import com.novahypnose.novarespire.ui.screens.ProfileScreen
-import com.novahypnose.novarespire.ui.components.OptimizedBreathingGuide
+import com.novahypnose.novarespire.ui.components.BreathingGuide
 import com.novahypnose.novarespire.ui.theme.NovaRespireTheme
 import com.novahypnose.novarespire.ui.theme.BreathingInhale
 import com.novahypnose.novarespire.ui.theme.BreathingExhale

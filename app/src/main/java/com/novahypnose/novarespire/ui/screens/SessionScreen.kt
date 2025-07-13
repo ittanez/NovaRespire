@@ -28,7 +28,7 @@ import com.novahypnose.novarespire.model.BreathingSessionViewModel
 import com.novahypnose.novarespire.data.models.Exercise
 import com.novahypnose.novarespire.data.models.Phase
 import com.novahypnose.novarespire.data.models.SessionState
-import com.novahypnose.novarespire.ui.components.OptimizedBreathingGuide
+import com.novahypnose.novarespire.ui.components.BreathingGuide
 import com.novahypnose.novarespire.utils.Strings
 import com.novahypnose.novarespire.R
 import kotlin.math.sin
@@ -229,7 +229,7 @@ private fun SessionActiveUI(
                 .weight(1f)
                 .fillMaxWidth()
         ) {
-            OptimizedBreathingGuide(
+            BreathingGuide(
                 currentPhase = state.currentPhase,
                 isActive = true,
                 phaseProgress = state.phaseProgress,

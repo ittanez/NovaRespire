@@ -23,7 +23,7 @@ import com.novahypnose.novarespire.ui.theme.BreathingExhale
 import com.novahypnose.novarespire.ui.theme.BreathingHold
 
 @Composable
-fun OptimizedBreathingGuide(
+fun BreathingGuide(
     currentPhase: Phase,
     isActive: Boolean,
     phaseProgress: Float,
