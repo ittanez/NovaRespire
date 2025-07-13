@@ -84,7 +84,8 @@ fun MainScreen(
                 exercises = Exercise.getAll(),
                 selectedExercise = selectedExercise,
                 onExerciseSelected = { selectedExercise = it },
-                onShowExerciseInfo = onShowExerciseInfo
+                onShowExerciseInfo = onShowExerciseInfo,
+                isDarkMode = isDarkMode
             )
 
             // ✅ Sélection de durée avec NovaColors
@@ -280,7 +281,8 @@ private fun ExerciseListCorrected(
     exercises: List<Exercise>,
     selectedExercise: Exercise,
     onExerciseSelected: (Exercise) -> Unit,
-    onShowExerciseInfo: (Exercise) -> Unit
+    onShowExerciseInfo: (Exercise) -> Unit,
+    isDarkMode: Boolean = false
 ) {
     Column(
         modifier = Modifier.padding(vertical = 8.dp)
