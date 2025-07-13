@@ -11,6 +11,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.compose.foundation.clickable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -216,6 +217,7 @@ private fun SessionActiveUI(
     onTogglePause: () -> Unit,
     onStop: () -> Unit
 ) {
+    var showControls by remember { mutableStateOf(false) }
     Column(modifier = Modifier.fillMaxSize()) {
         SessionHeader(
             sessionTimeRemaining = state.sessionTimeRemaining,
@@ -228,6 +230,7 @@ private fun SessionActiveUI(
             modifier = Modifier
                 .weight(1f)
                 .fillMaxWidth()
+                .clickable { showControls = !showControls } // Toggle au tap
         ) {
             BreathingGuide(
                 currentPhase = state.currentPhase,
@@ -240,13 +243,16 @@ private fun SessionActiveUI(
             )
         }
 
-        SessionControls(
-            soundEnabled = soundEnabled,
-            isPaused = false,
-            onToggleSound = onToggleSound,
-            onTogglePause = onTogglePause,
-            onStop = onStop
-        )
+        // Boutons masqués par défaut, apparaissent au tap
+        if (showControls) {
+            SessionControls(
+                soundEnabled = soundEnabled,
+                isPaused = false,
+                onToggleSound = onToggleSound,
+                onTogglePause = onTogglePause,
+                onStop = onStop
+            )
+        }
     }
 }
 

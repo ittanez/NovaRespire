@@ -175,8 +175,9 @@ private fun SimpleBreathingCircle(
     
     // Forme selon la phase
     val shape = when (phaseType) {
+        PhaseType.INHALE -> CircleShape // Cercle pour inspirez
+        PhaseType.HOLD -> CircleShape // Cercle pour retenez  
         PhaseType.EXHALE -> HexagonShape() // Hexagone pour expirez
-        else -> CircleShape // Cercle pour inspirez et reteez
     }
 
     Box(

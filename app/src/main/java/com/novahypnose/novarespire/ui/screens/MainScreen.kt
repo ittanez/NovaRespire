@@ -290,7 +290,8 @@ private fun ExerciseListCorrected(
                 exercise = exercise,
                 isSelected = selectedExercise.id == exercise.id,
                 onExerciseSelected = { onExerciseSelected(exercise) },
-                onShowExerciseInfo = { onShowExerciseInfo(exercise) }
+                onShowExerciseInfo = { onShowExerciseInfo(exercise) },
+                isDarkMode = isDarkMode
             )
         }
     }
@@ -301,17 +302,22 @@ private fun ExerciseCardCorrected(
     exercise: Exercise,
     isSelected: Boolean,
     onExerciseSelected: () -> Unit,
-    onShowExerciseInfo: () -> Unit
+    onShowExerciseInfo: () -> Unit,
+    isDarkMode: Boolean = false
 ) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .padding(vertical = 4.dp),
         colors = CardDefaults.cardColors(
-            containerColor = if (isSelected)
-                NovaColors.Surface30 // ✅ CENTRALISÉ
-            else
-                NovaColors.Surface15 // ✅ CENTRALISÉ
+            containerColor = if (isDarkMode) {
+                if (isSelected) NovaColors.Surface30 else NovaColors.Surface15
+            } else {
+                if (isSelected) 
+                    Color.White.copy(alpha = 0.95f) 
+                else 
+                    Color.White.copy(alpha = 0.85f)
+            }
         ),
         shape = RoundedCornerShape(12.dp),
         onClick = onExerciseSelected
@@ -325,12 +331,12 @@ private fun ExerciseCardCorrected(
                     text = exercise.name,
                     fontSize = 16.sp,
                     fontWeight = FontWeight.SemiBold,
-                    color = NovaColors.White // ✅ CENTRALISÉ
+                    color = if (isDarkMode) NovaColors.White else Color.Black
                 )
                 Text(
                     text = exercise.description,
                     fontSize = 12.sp,
-                    color = NovaColors.White.copy(alpha = 0.8f), // ✅ CENTRALISÉ
+                    color = if (isDarkMode) NovaColors.White.copy(alpha = 0.8f) else Color.Black.copy(alpha = 0.7f)
                     modifier = Modifier.padding(top = 2.dp)
                 )
             }
