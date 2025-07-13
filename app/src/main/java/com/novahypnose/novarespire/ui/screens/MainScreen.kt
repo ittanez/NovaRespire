@@ -336,7 +336,7 @@ private fun ExerciseCardCorrected(
                 Text(
                     text = exercise.description,
                     fontSize = 12.sp,
-                    color = if (isDarkMode) NovaColors.White.copy(alpha = 0.8f) else Color.Black.copy(alpha = 0.7f)
+                    color = if (isDarkMode) NovaColors.White.copy(alpha = 0.8f) else Color.Black.copy(alpha = 0.7f),
                     modifier = Modifier.padding(top = 2.dp)
                 )
             }
