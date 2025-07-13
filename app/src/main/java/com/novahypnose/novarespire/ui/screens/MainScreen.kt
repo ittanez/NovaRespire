@@ -74,7 +74,10 @@ fun MainScreen(
             AppHeaderCorrected()
 
             // ✅ Carte Alain Zenatti avec NovaColors
-            AuthorCardSimplified(onLearnMore = onLearnMore)
+            AuthorCardSimplified(
+                onLearnMore = onLearnMore,
+                isDarkMode = isDarkMode
+            )
 
             // ✅ Liste des exercices avec NovaColors
             ExerciseListCorrected(
@@ -208,13 +211,20 @@ private fun AppHeaderCorrected() {
 
 // ✅ CARTE AUTEUR AVEC NOVACOLORS
 @Composable
-private fun AuthorCardSimplified(onLearnMore: () -> Unit) {
+private fun AuthorCardSimplified(
+    onLearnMore: () -> Unit,
+    isDarkMode: Boolean = false
+) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 8.dp, vertical = 12.dp),
         colors = CardDefaults.cardColors(
-            containerColor = Color.White.copy(alpha = 0.95f) // FOND BLANC POUR LISIBILITÉ
+            containerColor = if (isDarkMode) {
+                NovaColors.Surface15 // Mode sombre : transparent
+            } else {
+                Color.White.copy(alpha = 0.95f) // Mode jour : blanc
+            }
         ),
         shape = RoundedCornerShape(16.dp)
     ) {
