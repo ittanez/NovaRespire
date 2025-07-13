@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    FICHIER: res/values/strings.xml
+    Nova Respire - Chaînes de caractères françaises
+-->
+<resources>
+    <!-- App générales -->
+    <string name="app_name">Nova Respire</string>
+    <string name="app_subtitle">Guide Anti-stress</string>
+    <string name="created_by">Créé par Alain Zenatti</string>
+    <string name="hypnotherapist">Hypnothérapeute | Nova Hypnose</string>
+    <string name="learn_more">En savoir plus ></string>
+
+    <!-- Navigation -->
+    <string name="back_button">← Retour</string>
+
+    <!-- Session controls -->
+    <string name="session_duration">Durée de la session</string>
+    <string name="start_button">Commencer</string>
+    <string name="pause_button">Pause</string>
+    <string name="resume_button">Reprendre</string>
+    <string name="stop_button">Arrêter</string>
+    <string name="new_session_button">Nouvelle session</string>
+
+    <!-- Durées -->
+    <string name="duration_1_min">1 min</string>
+    <string name="duration_2_min">2 min</string>
+    <string name="duration_5_min">5 min</string>
+
+    <!-- Instructions de respiration -->
+    <string name="inhale">INSPIREZ</string>
+    <string name="exhale">EXPIREZ</string>
+    <string name="hold">RETENEZ</string>
+    <string name="ready">PRÊT</string>
+    <string name="pause_text">PAUSE</string>
+    <string name="lets_go">C\'est parti !</string>
+
+    <!-- Session info -->
+    <string name="session_label">Session: %1$s</string>
+    <string name="phase_label">Phase: %1$s (%2$ds)</string>
+
+    <!-- Exercices de respiration -->
+    <string name="exercise_478_name">4-7-8</string>
+    <string name="exercise_478_desc">Respiration relaxante pour l\'endormissement</string>
+    <string name="exercise_478_explanation">Technique développée par le Dr Andrew Weil. Cette méthode active le système nerveux parasympathique et favorise la relaxation profonde. Idéale avant le coucher pour calmer l\'esprit et faciliter l\'endormissement.</string>
+
+    <string name="exercise_coherence_name">Cohérence cardiaque</string>
+    <string name="exercise_coherence_desc">5 sec inspiration, 5 sec expiration</string>
+    <string name="exercise_coherence_explanation">Technique qui synchronise le rythme cardiaque avec la respiration. Réduit le stress, améliore la concentration et régule les émotions. Pratique recommandée 3 fois par jour, 5 minutes par session.</string>
+
+    <string name="exercise_square_name">Respiration carrée</string>
+    <string name="exercise_square_desc">4-4-4-4 pour la concentration</string>
+    <string name="exercise_square_explanation">Technique utilisée par les forces spéciales pour gérer le stress. Les 4 temps égaux créent un rythme régulier qui calme l\'esprit et améliore la concentration. Très efficace avant des situations stressantes.</string>
+
+    <string name="exercise_calm_name">Respiration apaisante</string>
+    <string name="exercise_calm_desc">Respiration libre et naturelle</string>
+    <string name="exercise_calm_explanation">Respiration douce qui privilégie une expiration plus longue. Cette technique active la réponse de relaxation et diminue l\'anxiété naturellement. Parfaite pour les moments de stress quotidien.</string>
+
+    <!-- Instructions détaillées des phases -->
+    <string name="phase_inhale_nose">Inspirez par le nez</string>
+    <string name="phase_hold_breath">Retenez votre souffle</string>
+    <string name="phase_exhale_mouth">Expirez par la bouche</string>
+    <string name="phase_inhale_slowly">Inspirez lentement</string>
+    <string name="phase_exhale_gently">Expirez doucement</string>
+    <string name="phase_inhale_simple">Inspirez</string>
+    <string name="phase_exhale_simple">Expirez</string>
+    <string name="phase_hold_simple">Retenez</string>
+    <string name="phase_inhale_naturally">Inspirez naturellement</string>
+    <string name="phase_exhale_slowly">Expirez lentement</string>
+
+    <!-- Écran d'informations sur l'exercice -->
+    <string name="how_it_works">Comment ça fonctionne</string>
+    <string name="the_steps">Les étapes</string>
+    <string name="choose_duration">Choisir la durée</string>
+    <string name="start_exercise">Commencer cet exercice</string>
+    <string name="step_duration">%1$s (%2$ds)</string>
+
+    <!-- Écran de fin -->
+    <string name="congratulations">✨ Félicitations !</string>
+    <string name="session_complete">Vous avez terminé votre session de respiration.\n\nPrenez un moment pour ressentir les bienfaits de cet exercice.</string>
+
+    <!-- À propos -->
+    <string name="my_approach">Mon approche, par Alain Zenatti</string>
+    <string name="alain_bio">Je suis Alain Zenatti, Maître Hypnologue et créateur de cette application. J\'ai conçu Nova Respire comme une première porte d\'entrée vers le calme intérieur.\n\nMon approche, l\'hypnose ericksonienne, vous accompagne ensuite en douceur pour mobiliser vos propres ressources et transformer durablement ce qui doit l\'être.</string>
+    <string name="alain_cta">Si ces exercices vous apaisent, imaginez ce que nous pouvons accomplir ensemble. L\'hypnose agit là où la volonté seule atteint ses limites.</string>
+    <string name="discover_coaching">Découvrir mon accompagnement</string>
+    <string name="website">www.novahypnose.fr</string>
+    <string name="alain_signature">Alain ZENATTI\nHypnothérapeute</string>
+
+    <!-- Messages d'erreur -->
+    <string name="error_no_phases">Erreur: L\'exercice n\'a pas de phases.</string>
+    <string name="error_image_not_found">Image non trouvée</string>
+
+    <!-- Accessibilité -->
+    <string name="cd_alain_photo">Photo d\'Alain Zenatti</string>
+    <string name="cd_background_image">Image de fond</string>
+    <string name="cd_breathing_guide">Guide de respiration animé</string>
+    <string name="cd_sound_toggle">Basculer le son</string>
+    <string name="cd_dark_mode_toggle">Basculer le mode sombre</string>
+    <string name="cd_exercise_info">Informations sur l\'exercice</string>
+    <string name="cd_phase_indicator">Indicateur de phase</string>
+
+    <!-- Debug et logs -->
+    <string name="log_session_start">🚀 Démarrage - Exercice: %1$s, Durée: %2$d min</string>
+    <string name="log_countdown">⏱️ Décompte: %1$d</string>
+    <string name="log_phase_change">🔄 Phase %1$d/%2$d: %3$s (%4$ds)</string>
+    <string name="log_session_pause">⏸️ Session %1$s</string>
+    <string name="log_session_complete">🏁 Session terminée</string>
+</resources>
