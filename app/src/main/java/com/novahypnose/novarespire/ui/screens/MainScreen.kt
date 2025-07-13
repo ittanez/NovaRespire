@@ -91,7 +91,8 @@ fun MainScreen(
             // ✅ Sélection de durée avec NovaColors
             DurationSelectorCorrected(
                 selectedDuration = selectedDuration,
-                onDurationSelected = { selectedDuration = it }
+                onDurationSelected = { selectedDuration = it },
+                isDarkMode = isDarkMode
             )
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -375,7 +376,8 @@ private fun ExerciseCardCorrected(
 @Composable
 private fun DurationSelectorCorrected(
     selectedDuration: Int,
-    onDurationSelected: (Int) -> Unit
+    onDurationSelected: (Int) -> Unit,
+    isDarkMode: Boolean = false
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -385,7 +387,7 @@ private fun DurationSelectorCorrected(
             text = Strings.session_duration,
             fontSize = 16.sp,
             fontWeight = FontWeight.Bold,
-            color = NovaColors.White, // ✅ CENTRALISÉ
+            color = if (isDarkMode) NovaColors.White else Color.Black,
             modifier = Modifier.padding(bottom = 12.dp)
         )
 
@@ -394,7 +396,8 @@ private fun DurationSelectorCorrected(
                 DurationButtonCorrected(
                     duration = duration,
                     isSelected = selectedDuration == duration,
-                    onSelected = { onDurationSelected(duration) }
+                    onSelected = { onDurationSelected(duration) },
+                    isDarkMode = isDarkMode
                 )
             }
         }
@@ -405,7 +408,8 @@ private fun DurationSelectorCorrected(
 private fun DurationButtonCorrected(
     duration: Int,
     isSelected: Boolean,
-    onSelected: () -> Unit
+    onSelected: () -> Unit,
+    isDarkMode: Boolean = false
 ) {
     Card(
         onClick = onSelected,
@@ -421,7 +425,7 @@ private fun DurationButtonCorrected(
             text = "$duration min",
             fontSize = 14.sp,
             fontWeight = FontWeight.Medium,
-            color = NovaColors.White, // ✅ CENTRALISÉ
+            color = if (isDarkMode) NovaColors.White else Color.Black,
             modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp)
         )
     }
