@@ -58,7 +58,8 @@ fun SessionScreen(
         when (sessionState) {
             is SessionState.Completed -> {
                 Log.d("SessionScreen", "✅ Session terminée avec succès")
-                onComplete()
+                // ✅ Ne pas appeler onComplete() automatiquement
+                // L'utilisateur cliquera sur un bouton pour revenir
             }
             is SessionState.Stopped -> {
                 Log.d("SessionScreen", "🛑 Session arrêtée par l'utilisateur")
@@ -106,7 +107,9 @@ fun SessionScreen(
                 )
             }
             is SessionState.Completed -> {
-                SessionCompletedUI()
+                SessionCompletedUI(
+                    onBackToHome = onComplete
+                )
             }
             is SessionState.Stopped -> {
                 SessionStoppedUI()
@@ -332,31 +335,63 @@ private fun SessionPausedUI(
 }
 
 @Composable
-private fun SessionCompletedUI() {
+private fun SessionCompletedUI(
+    onBackToHome: () -> Unit
+) {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally
+        Card(
+            modifier = Modifier.padding(32.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = Color.White.copy(alpha = 0.95f)
+            ),
+            elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
+            shape = RoundedCornerShape(28.dp)
         ) {
-            Text(
-                text = "✨",
-                fontSize = 64.sp,
-                modifier = Modifier.padding(bottom = 16.dp)
-            )
-            Text(
-                text = "Session terminée !",
-                fontSize = 28.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color.White,
-                textAlign = TextAlign.Center
-            )
-            Spacer(modifier = Modifier.height(16.dp))
-            CircularProgressIndicator(
-                color = MaterialTheme.colorScheme.primary,
-                modifier = Modifier.size(32.dp)
-            )
+            Column(
+                modifier = Modifier.padding(32.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text(
+                    text = "🎉",
+                    fontSize = 64.sp,
+                    modifier = Modifier.padding(bottom = 16.dp)
+                )
+                Text(
+                    text = "Félicitations !",
+                    fontSize = 28.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color.Black,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(bottom = 8.dp)
+                )
+                Text(
+                    text = "Session terminée avec succès",
+                    fontSize = 16.sp,
+                    color = Color.Black.copy(alpha = 0.7f),
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(bottom = 24.dp)
+                )
+                
+                Button(
+                    onClick = onBackToHome,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(0xFFeab543) // Orange Nova
+                    ),
+                    shape = RoundedCornerShape(24.dp),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(
+                        text = "Retour à l'accueil",
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color.White,
+                        modifier = Modifier.padding(vertical = 8.dp)
+                    )
+                }
+            }
         }
     }
 }

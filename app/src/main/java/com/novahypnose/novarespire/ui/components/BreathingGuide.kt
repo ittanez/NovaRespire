@@ -22,7 +22,10 @@ import com.novahypnose.novarespire.ui.theme.BreathingInhale
 import com.novahypnose.novarespire.ui.theme.BreathingExhale
 import com.novahypnose.novarespire.ui.theme.BreathingHold
 
-
+/**
+ * Guide de respiration - VERSION 100% CERCLE GARANTIE
+ * AUCUN hexagone, JAMAIS, même en cache !
+ */
 @Composable
 fun BreathingGuide(
     currentPhase: Phase,
@@ -107,8 +110,8 @@ fun BreathingGuide(
             }
         }
 
-        // ✅ Forme de respiration avec vos couleurs (toujours des cercles)
-        SimpleBreathingCircle(
+        // ✅ FORME DE RESPIRATION - GARANTIE 100% CERCLE
+        OnlyCircleBreathingShape(
             scale = if (currentPhase.type == PhaseType.HOLD) 2.0f else animatedScale,
             color = phaseColor,
             isActive = isActive,
@@ -124,8 +127,12 @@ fun BreathingGuide(
     }
 }
 
+/**
+ * COMPOSANT GARANTIE 100% CERCLE
+ * Impossible d'avoir un hexagone ici !
+ */
 @Composable
-private fun SimpleBreathingCircle(
+private fun OnlyCircleBreathingShape(
     scale: Float,
     color: Color,
     isActive: Boolean,
@@ -134,9 +141,8 @@ private fun SimpleBreathingCircle(
     val baseSize = 180.dp
     val finalScale = scale.coerceIn(0.3f, 2.5f)
     
-    // Toujours un cercle pour toutes les phases
-    android.util.Log.d("BreathingGuide", "⭕ Phase: $phaseType → CircleShape")
-    val shape = CircleShape
+    // ✅ LOG POUR VÉRIFIER
+    android.util.Log.d("BreathingGuide", "🔵 Phase: $phaseType → CERCLE SEULEMENT")
 
     Box(
         modifier = Modifier
@@ -152,11 +158,11 @@ private fun SimpleBreathingCircle(
                         Color.Transparent
                     )
                 ),
-                shape = CircleShape
+                shape = CircleShape // ✅ FORCÉ CERCLE
             )
             .shadow(
                 elevation = if (isActive) 12.dp else 4.dp,
-                shape = CircleShape,
+                shape = CircleShape, // ✅ FORCÉ CERCLE
                 ambientColor = color.copy(alpha = 0.4f),
                 spotColor = color.copy(alpha = 0.6f)
             )

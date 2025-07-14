@@ -11,6 +11,7 @@ import com.novahypnose.novarespire.data.models.Exercise
 import com.novahypnose.novarespire.ui.screens.MainScreen
 import com.novahypnose.novarespire.ui.screens.ProfileScreen
 import com.novahypnose.novarespire.ui.screens.SessionScreen
+import com.novahypnose.novarespire.ui.screens.ExerciseInfoScreen
 import com.novahypnose.novarespire.model.BreathingSessionViewModel
 
 /**
@@ -20,8 +21,10 @@ object NovaRoutes {
     const val MAIN = "main"
     const val PROFILE = "profile"
     const val SESSION = "session/{exerciseId}/{duration}"
+    const val EXERCISE_INFO = "exercise_info/{exerciseId}"
     
     fun sessionRoute(exerciseId: String, duration: Int) = "session/$exerciseId/$duration"
+    fun exerciseInfoRoute(exerciseId: String) = "exercise_info/$exerciseId"
 }
 
 /**
@@ -56,7 +59,9 @@ fun NovaNavigation(
                     navController.navigate(NovaRoutes.PROFILE)
                 },
                 onShowExerciseInfo = { exercise ->
-                    // TODO: Implémenter dialogue d'info exercice
+                    navController.navigate(
+                        NovaRoutes.exerciseInfoRoute(exercise.id)
+                    )
                 }
             )
         }
@@ -64,6 +69,20 @@ fun NovaNavigation(
         // ✅ ÉCRAN PROFIL
         composable(NovaRoutes.PROFILE) {
             ProfileScreen(
+                isDarkMode = isDarkMode,
+                onBack = {
+                    navController.popBackStack()
+                }
+            )
+        }
+        
+        // ✅ ÉCRAN INFO EXERCICE
+        composable(NovaRoutes.EXERCISE_INFO) { backStackEntry ->
+            val exerciseId = backStackEntry.arguments?.getString("exerciseId") ?: ""
+            val exercise = Exercise.getAll().find { it.id == exerciseId } ?: Exercise.getDefault()
+            
+            ExerciseInfoScreen(
+                exercise = exercise,
                 isDarkMode = isDarkMode,
                 onBack = {
                     navController.popBackStack()
