@@ -152,11 +152,11 @@ private fun SimpleBreathingCircle(
                         Color.Transparent
                     )
                 ),
-                shape = shape
+                shape = CircleShape
             )
             .shadow(
                 elevation = if (isActive) 12.dp else 4.dp,
-                shape = shape,
+                shape = CircleShape,
                 ambientColor = color.copy(alpha = 0.4f),
                 spotColor = color.copy(alpha = 0.6f)
             )

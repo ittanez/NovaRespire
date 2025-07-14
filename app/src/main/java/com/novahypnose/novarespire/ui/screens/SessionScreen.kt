@@ -349,7 +349,7 @@ private fun SessionCompletedUI() {
                 text = "Session terminée !",
                 fontSize = 28.sp,
                 fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.onBackground,
+                color = Color.White,
                 textAlign = TextAlign.Center
             )
             Spacer(modifier = Modifier.height(16.dp))
