@@ -20,7 +20,6 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Outline
-import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.LayoutDirection
 import com.novahypnose.novarespire.data.models.Phase
@@ -32,9 +31,9 @@ import com.novahypnose.novarespire.ui.theme.BreathingExhale
 import com.novahypnose.novarespire.ui.theme.BreathingHold
 
 /**
- * Forme hexagonale pour la phase EXHALE
+ * Forme hexagonale pour la phase EXHALE (singleton pour optimisation)
  */
-class HexagonShape : Shape {
+object HexagonShape : Shape {
     override fun createOutline(
         size: Size,
         layoutDirection: LayoutDirection,
@@ -177,7 +176,7 @@ private fun SimpleBreathingCircle(
     val shape = when (phaseType) {
         PhaseType.INHALE -> CircleShape // Cercle pour inspirez
         PhaseType.HOLD -> CircleShape // Cercle pour retenez  
-        PhaseType.EXHALE -> HexagonShape() // Hexagone pour expirez
+        PhaseType.EXHALE -> HexagonShape // Hexagone pour expirez
     }
 
     Box(
