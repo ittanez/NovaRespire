@@ -74,6 +74,9 @@ dependencies {
     // ✅ AJOUTEZ CETTE LIGNE :
     implementation("androidx.compose.animation:animation:1.5.4")
 
+    // ✅ NAVIGATION COMPOSE
+    implementation("androidx.navigation:navigation-compose:2.7.5")
+    
     // ✅ HILT DEPENDENCY INJECTION
     implementation("com.google.dagger:hilt-android:2.48")
     kapt("com.google.dagger:hilt-compiler:2.48")

@@ -82,14 +82,20 @@ class BreathingSessionViewModel @Inject constructor(
             _sessionState.value = SessionState.Countdown(0)
             delay(500)
 
-            // Calculate session parameters
+            // ✅ Calculate session parameters with precise cycles
             val totalSessionSeconds = durationMinutes * 60
             val cycleDuration = exercise.phases.sumOf { it.durationSeconds }
-            val totalCycles = if (cycleDuration > 0) totalSessionSeconds / cycleDuration else 0
-
-            if (totalCycles <= 0) {
+            
+            if (cycleDuration <= 0) {
                 throw IllegalArgumentException("Durée de cycle invalide")
             }
+            
+            // ✅ Correction calculs précis
+            val exactCycles = totalSessionSeconds.toDouble() / cycleDuration
+            val adjustedCycles = exactCycles.toInt()
+            val totalCycles = if (adjustedCycles < 1) 1 else adjustedCycles
+            
+            android.util.Log.d("SessionCalc", "📊 Durée: ${durationMinutes}min | Cycle: ${cycleDuration}s | Cycles exacts: $exactCycles | Cycles ajustés: $totalCycles")
 
             var remainingTime = totalSessionSeconds
             var cycleCount = 0
@@ -183,10 +189,11 @@ class BreathingSessionViewModel @Inject constructor(
             remainingTime--
         }
 
-        // Continue with remaining phases and cycles
+        // ✅ Continue with remaining phases and cycles - calcul corrigé
         val totalSessionSeconds = sessionDurationMinutes * 60
         val cycleDuration = exercise.phases.sumOf { it.durationSeconds }
-        val totalCycles = totalSessionSeconds / cycleDuration
+        val exactCycles = totalSessionSeconds.toDouble() / cycleDuration
+        val totalCycles = exactCycles.toInt()
 
         while (remainingTime > 0 && cycleCount < totalCycles) {
             for (phaseIndex in (currentPhaseIndex + 1) until exercise.phases.size) {
