@@ -16,50 +16,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.graphics.Path
-import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.Outline
-import androidx.compose.ui.unit.Density
-import androidx.compose.ui.unit.LayoutDirection
 import com.novahypnose.novarespire.data.models.Phase
 import com.novahypnose.novarespire.data.models.PhaseType
-import kotlin.math.cos
-import kotlin.math.sin
 import com.novahypnose.novarespire.ui.theme.BreathingInhale
 import com.novahypnose.novarespire.ui.theme.BreathingExhale
 import com.novahypnose.novarespire.ui.theme.BreathingHold
 
-/**
- * Forme hexagonale pour la phase EXHALE (singleton pour optimisation)
- */
-object HexagonShape : Shape {
-    override fun createOutline(
-        size: Size,
-        layoutDirection: LayoutDirection,
-        density: Density
-    ): Outline {
-        val path = Path()
-        val radius = minOf(size.width, size.height) / 2f
-        val centerX = size.width / 2f
-        val centerY = size.height / 2f
-        
-        // Créer un hexagone
-        for (i in 0..5) {
-            val angle = (i * 60.0 - 90.0) * Math.PI / 180.0
-            val x = centerX + (radius * cos(angle)).toFloat()
-            val y = centerY + (radius * sin(angle)).toFloat()
-            
-            if (i == 0) {
-                path.moveTo(x, y)
-            } else {
-                path.lineTo(x, y)
-            }
-        }
-        path.close()
-        return Outline.Generic(path)
-    }
-}
 
 @Composable
 fun BreathingGuide(
@@ -145,7 +107,7 @@ fun BreathingGuide(
             }
         }
 
-        // ✅ Forme de respiration avec vos couleurs (hexagone pour EXHALE)
+        // ✅ Forme de respiration avec vos couleurs (toujours des cercles)
         SimpleBreathingCircle(
             scale = if (currentPhase.type == PhaseType.HOLD) 2.0f else animatedScale,
             color = phaseColor,
@@ -172,12 +134,9 @@ private fun SimpleBreathingCircle(
     val baseSize = 180.dp
     val finalScale = scale.coerceIn(0.3f, 2.5f)
     
-    // Forme selon la phase
-    val shape = when (phaseType) {
-        PhaseType.INHALE -> CircleShape // Cercle pour inspirez
-        PhaseType.HOLD -> CircleShape // Cercle pour retenez  
-        PhaseType.EXHALE -> HexagonShape // Hexagone pour expirez
-    }
+    // Toujours un cercle pour toutes les phases
+    android.util.Log.d("BreathingGuide", "⭕ Phase: $phaseType → CircleShape")
+    val shape = CircleShape
 
     Box(
         modifier = Modifier
